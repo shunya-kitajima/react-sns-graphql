@@ -19,7 +19,7 @@ const MainPage: React.FC = () => {
     fetchPolicy: 'cache-and-network',
   })
   const myFollowings = dataMyProfile?.profile.followings.edges.map(
-    (node: any) => node.id
+    ({ node }: any) => node.id
   )
   const [updateProfile] = useMutation(UPDATE_PROFILE)
 
@@ -51,7 +51,7 @@ const MainPage: React.FC = () => {
         <Grid item xs={4}>
           <h3>Following</h3>
           <ul className={styles.mainPage__list}>
-            {dataMyProfile?.profile.followings.edges.map((node: any) => (
+            {dataMyProfile?.profile.followings.edges.map(({ node }: any) => (
               <li className={styles.mainPage__item} key={node.id}>
                 {node.username}
               </li>
@@ -62,7 +62,7 @@ const MainPage: React.FC = () => {
           <h3>ProfileList</h3>
           <ul className={styles.mainPage__list}>
             {dataProfiles?.allProfiles.edges.map(
-              (node: any) =>
+              ({ node }: any) =>
                 node.id !== dataMyProfile?.profile.id && (
                   <li className={styles.mainPage__item} key={node.id}>
                     {node.userProf.username}
@@ -101,7 +101,7 @@ const MainPage: React.FC = () => {
           <h3>Followers</h3>
           <ul className={styles.mainPage__list}>
             {dataMyProfile?.profile.userProf.profilesFollowings.edges.map(
-              (node: any) => (
+              ({ node }: any) => (
                 <li className={styles.mainPage__item} key={node.id}>
                   {node.userProf.username}
                 </li>
