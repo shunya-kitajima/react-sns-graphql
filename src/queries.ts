@@ -42,7 +42,7 @@ export const UPDATE_PROFILE = gql`
         followings {
           edges {
             node {
-              usernames
+              username
             }
           }
         }
