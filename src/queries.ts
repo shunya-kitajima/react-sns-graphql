@@ -31,6 +31,26 @@ export const CREATE_PROFILE = gql`
   }
 `
 
+export const UPDATE_PROFILE = gql`
+  mutation ($id: ID!, $followings: [ID!]) {
+    updateProfile(input: { id: $id, followings: $followings }) {
+      profile {
+        id
+        userProf {
+          username
+        }
+        followings {
+          edges {
+            node {
+              usernames
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
 export const GET_PROFILES = gql`
   query {
     allProfiles {
