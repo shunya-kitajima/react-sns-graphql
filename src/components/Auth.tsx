@@ -47,7 +47,31 @@ const Auth: React.FC = () => {
     }
   }
 
-  return <div>Auth</div>
+  return (
+    <div className={styles.auth}>
+      <form onSubmit={async (e) => await authUser(e)}>
+        <div className={styles.auth__input}>
+          <label>Username: </label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className={styles.auth__input}>
+          <label>Password: </label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">
+          {isLogin ? 'Login with JWT' : 'Create new user'}
+        </button>
+      </form>
+    </div>
+  )
 }
 
 export default Auth
