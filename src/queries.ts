@@ -30,3 +30,27 @@ export const CREATE_PROFILE = gql`
     }
   }
 `
+
+export const GET_PROFILES = gql`
+  query {
+    allProfiles {
+      edges {
+        node {
+          id
+          userProf {
+            id
+            username
+          }
+          followings {
+            edges {
+              node {
+                id
+                username
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
