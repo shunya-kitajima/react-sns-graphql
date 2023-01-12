@@ -92,12 +92,12 @@ export const GET_MYPROFILE = gql`
             }
           }
         }
-        followings {
-          edges {
-            node {
-              id
-              username
-            }
+      }
+      followings {
+        edges {
+          node {
+            id
+            username
           }
         }
       }
