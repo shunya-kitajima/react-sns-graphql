@@ -29,6 +29,24 @@ const Auth: React.FC = () => {
     }
   }
 
+  const authUser = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault()
+    if (isLogin) {
+      await login()
+    } else {
+      try {
+        await createUser({
+          variables: { username: username, password: password },
+        })
+        await login()
+      } catch (err: any) {
+        alert(err.message)
+      }
+    }
+  }
+
   return <div>Auth</div>
 }
 
