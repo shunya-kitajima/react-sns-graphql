@@ -54,3 +54,33 @@ export const GET_PROFILES = gql`
     }
   }
 `
+
+export const GET_MYPROFILE = gql`
+  query {
+    profile {
+      id
+      userProf {
+        id
+        username
+        profilesFollowings {
+          edges {
+            node {
+              userProf {
+                id
+                username
+              }
+            }
+          }
+        }
+        followings {
+          edges {
+            node {
+              id
+              username
+            }
+          }
+        }
+      }
+    }
+  }
+`
