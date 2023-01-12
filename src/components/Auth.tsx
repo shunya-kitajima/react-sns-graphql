@@ -69,6 +69,12 @@ const Auth: React.FC = () => {
         <button type="submit">
           {isLogin ? 'Login with JWT' : 'Create new user'}
         </button>
+        <div>
+          <FlipCameraAndroid
+            className={styles.auth__toggle}
+            onClick={() => setIsLogin(!isLogin)}
+          />
+        </div>
       </form>
     </div>
   )
