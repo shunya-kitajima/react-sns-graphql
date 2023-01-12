@@ -27,7 +27,7 @@ const MainPage: React.FC = () => {
     <div className={styles.mainPage__root}>
       {(errorMyProfile || errorProfiles) && (
         <h3>
-          {errorProfiles!.message}/{errorMyProfile!.message}
+          {errorProfiles?.message}/{errorMyProfile?.message}
         </h3>
       )}
       <Grid container>
@@ -61,7 +61,7 @@ const MainPage: React.FC = () => {
         <Grid item xs={4}>
           <h3>ProfileList</h3>
           <ul className={styles.mainPage__list}>
-            {dataProfiles.allProfiles.edges.map(
+            {dataProfiles?.allProfiles.edges.map(
               (node: any) =>
                 node.id !== dataMyProfile?.profile.id && (
                   <li className={styles.mainPage__item} key={node.id}>
