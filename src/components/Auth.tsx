@@ -14,6 +14,21 @@ const Auth: React.FC = () => {
   const [getToken] = useMutation(GET_TOKEN)
   const [createProfile] = useMutation(CREATE_PROFILE)
 
+  const login = async (): Promise<void> => {
+    try {
+      const result = await getToken({
+        variables: { username: username, password: password },
+      })
+      localStorage.setItem('token', result.data?.tokenAuth?.token)
+      if (!isLogin) {
+        await createProfile()
+      }
+      navigate('/top')
+    } catch (err: any) {
+      alert(err.message)
+    }
+  }
+
   return <div>Auth</div>
 }
 
