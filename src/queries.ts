@@ -23,7 +23,7 @@ export const CREATE_PROFILE = gql`
     createProfile(input: {}) {
       profile {
         id
-        userProp {
+        userProf {
           username
         }
       }
