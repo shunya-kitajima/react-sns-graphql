@@ -10,3 +10,10 @@ export const CREATE_UER = gql`
     }
   }
 `
+export const GET_TOKEN = gql`
+  mutation ($username: String!, $passowrd: String!) {
+    tokenAuth(username: $username, password: $password) {
+      token
+    }
+  }
+`
