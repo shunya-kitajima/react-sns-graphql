@@ -17,3 +17,16 @@ export const GET_TOKEN = gql`
     }
   }
 `
+
+export const CREATE_PROFILE = gql`
+  mutation {
+    createProfile(input: {}) {
+      profile {
+        id
+        userProp {
+          username
+        }
+      }
+    }
+  }
+`
